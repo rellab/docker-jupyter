@@ -1,0 +1,9 @@
+FROM jupyter/datascience-notebook:latest
+
+ENV JUPYTER_PASSWORD mypasswd
+ENV JUPYTER_ENABLE_LAB yes
+COPY entrypoint.sh /entrypoint.sh
+
+VOLUME /home/jovyan/work
+
+CMD ["/entrypoint.sh"]
