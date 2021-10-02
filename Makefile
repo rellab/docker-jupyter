@@ -1,8 +1,8 @@
 #!/bin/bash
 
-IMAGE=rel/jupyter
+IMAGE=rel/jupyterlab
 
-build: build-nogpu buid-cuda10 build-cuda11
+build: build-nogpu build-cuda10 build-cuda11
 
 build-nogpu: Dockerfile-nogpu
 	docker build -t ${IMAGE}:nogpu -f Dockerfile-nogpu .
