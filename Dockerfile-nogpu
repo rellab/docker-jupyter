@@ -1,9 +1,28 @@
 FROM jupyter/datascience-notebook:latest
 
-ENV JUPYTER_PASSWORD mypasswd
+USER root
+
+RUN apt-get update &&\
+    apt-get install -y --no-install-recommends \
+    sudo \
+    whois &&\
+    apt-get clean &&\
+    rm -rf /var/lib/apt/lists/*
+
 ENV JUPYTER_ENABLE_LAB yes
+
+ENV JUPYTER_USER       reluser
+ENV JUPYTER_PASSWORD   relpasswd
+ENV JUPYTER_GROUP      relgroup
+ENV JUPYTER_HOME       /home/reluser
+ENV JUPYTER_UID        1001
+ENV JUPYTER_GID        1001
+ENV JUPYTER_GRANT_SUDO nopass
+
+ENV TZ=Asia/Tokyo
+
 COPY entrypoint.sh /entrypoint.sh
 
-VOLUME /home/jovyan/work
+VOLUME /home
 
 CMD ["/entrypoint.sh"]
