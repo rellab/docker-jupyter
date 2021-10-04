@@ -1,4 +1,4 @@
-#!/bin/bash
+# Makefile
 
 IMAGE=rel/jupyterlab
 
@@ -14,4 +14,4 @@ build-cuda11: Dockerfile-cuda11
 	docker build -t ${IMAGE}:cuda11 -f Dockerfile-cuda11 --build-arg BASE=${IMAGE}:nogpu .
 
 clean:
-	docker images | grep ${IMAGE} | awk '{print $3;}' | xargs docker rmi 
+	docker images | grep ${IMAGE} | awk '{print $$3}' | xargs docker rmi
