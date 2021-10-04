@@ -1,4 +1,4 @@
-ARG BASE=jupyter
+ARG BASE=jupyterlab
 FROM ${BASE}
 
 USER root
