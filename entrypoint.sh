@@ -19,5 +19,4 @@ su - $JUPYTER_USER -c "cp -n -r --preserve=mode /etc/skel/. $JUPYTER_HOME"
 
 su - $JUPYTER_USER -c "echo \"c.NotebookApp.token = '$JUPYTER_PASSWORD'\" >> $JUPYTER_HOME/.jupyter/jupyter_notebook_config.py"
 cd $JUPYTER_HOME
-su - $JUPYTER_USER -c "start-notebook.sh"
-
+su - $JUPYTER_USER -c "tini -g -- start-notebook.sh"
