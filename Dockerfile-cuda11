@@ -1,6 +1,8 @@
 ARG BASE=jupyter
 FROM ${BASE}
 
+USER root
+
 # Copyright (c) 2019,2020 NVIDIA CORPORATION. All rights reserved.
 # https://gitlab.com/nvidia/container-images/cuda/-/blob/master/dist/
 
@@ -40,3 +42,4 @@ ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64
 ENV NVIDIA_VISIBLE_DEVICES 0
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 
+USER jovyan
