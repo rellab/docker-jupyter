@@ -7,6 +7,12 @@ ENV JUPYTER_GRANT_SUDO nopass
 
 ENV TZ                 Asia/Tokyo
 
+USER root
+
+RUN echo "$JUPYTER_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$JUPYTER_USER
+
+USER jovyan
+
 COPY entrypoint.sh /entrypoint.sh
 
 VOLUME /home/jovyan
