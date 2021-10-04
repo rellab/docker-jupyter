@@ -1,7 +1,5 @@
 FROM jupyter/datascience-notebook:latest
 
-USER root
-
 ENV JUPYTER_ENABLE_LAB yes
 ENV JUPYTER_USER       jovyan
 ENV JUPYTER_PASSWORD   passwd
