@@ -1,5 +1,7 @@
-ARG BASE=jupyter
+ARG BASE=jupyterlab
 FROM ${BASE}
+
+USER root
 
 # Copyright (c) 2019,2020 NVIDIA CORPORATION. All rights reserved.
 ### install cuda - copied from nvidia cuda dockerfiles cuda 10.2
@@ -34,3 +36,4 @@ ENV NVIDIA_VISIBLE_DEVICES 0
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 ENV NVIDIA_REQUIRE_CUDA "cuda>=10.2 brand=tesla,driver>=396,driver<397 brand=tesla,driver>=410,driver<411 brand=tesla,driver>=418,driver<419 brand=tesla,driver>=440,driver<441"
 
+USER jovyan
