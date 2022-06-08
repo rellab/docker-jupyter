@@ -13,9 +13,10 @@ RUN echo "$JUPYTER_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$JUPYTER_USER
 
 USER jovyan
 
+RUN pip install jupyterlab-link-share
 RUN pip install --upgrade jupyterlab jupyterlab-git
 
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint-colab.sh /entrypoint.sh
 
 VOLUME /home/jovyan
 
